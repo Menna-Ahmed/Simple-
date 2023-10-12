@@ -8,7 +8,11 @@
 
 
 ## video
-[![Google]([https://img.shields.io/badge/Drive-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://drive.google.com/file/d/153nPTHUmDoSwtWD0h7FmEvQuhx0eonT4/view?usp=sharing](https://drive.google.com/file/d/1jesg2QvQ8hSRJJfIUKOpbWXoNbdN9YyO/view?usp=sharing)https://drive.google.com/file/d/1jesg2QvQ8hSRJJfIUKOpbWXoNbdN9YyO/view?usp=sharing))
+[![Google]([[https://drive.google.com/file/d/1jesg2QvQ8hSRJJfIUKOpbWXoNbdN9YyO/view?usp=sharing)https://drive.google.com/file/d/1jesg2QvQ8hSRJJfIUKOpbWXoNbdN9YyO/view?usp=sharing]
+
+
+
+
 
 
 
