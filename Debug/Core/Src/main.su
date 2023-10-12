@@ -1,0 +1,10 @@
+main.c:67:5:main	8	static
+main.c:117:6:SystemClock_Config	72	static
+main.c:152:13:MX_GPIO_Init	40	static
+main.c:191:6:Error_Handler	4	static
+main.c:199:6:TASKS_CREATION	16	static
+main.c:205:6:SCHEDULER	16	static
+main.c:221:6:SysTick_Handler	8	static
+main.c:232:6:red_toggle	8	static
+main.c:237:6:yellow_toggle	8	static
+main.c:242:6:green_toggle	8	static
