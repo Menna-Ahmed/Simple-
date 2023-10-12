@@ -8,7 +8,7 @@
 
 
 ## video
-[![Google](https://drive.google.com/file/d/1jesg2QvQ8hSRJJfIUKOpbWXoNbdN9YyO/view?usp=sharing)
+[![Google](https://img.shields.io/badge/Drive-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://drive.google.com/file/d/1jesg2QvQ8hSRJJfIUKOpbWXoNbdN9YyO/view?usp=sharing)
 
 
 
