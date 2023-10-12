@@ -8,7 +8,7 @@
 
 
 ## video
-[![Google]([[https://drive.google.com/file/d/1jesg2QvQ8hSRJJfIUKOpbWXoNbdN9YyO/view?usp=sharing)https://drive.google.com/file/d/1jesg2QvQ8hSRJJfIUKOpbWXoNbdN9YyO/view?usp=sharing]
+[![Google](https://drive.google.com/file/d/1jesg2QvQ8hSRJJfIUKOpbWXoNbdN9YyO/view?usp=sharing)
 
 
 
