@@ -22,10 +22,10 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#define NO_OF_TASKS 3
+
 Task arr[NO_OF_TASKS] ;
 
-uint8_t TICK_COUNTS =0;
+uint8_t TICK_COUNTS =ZERO;
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -90,11 +90,11 @@ int main(void)
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
   HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK_DIV8);
-  HAL_SYSTICK_Config(10000000);
+  HAL_SYSTICK_Config(ONE_SECOUND);
 
-  TASKS_CREATION(0,1,red_toggle);
-  TASKS_CREATION(1,2,yellow_toggle);
-  TASKS_CREATION(2,5,green_toggle);
+  TASKS_CREATION(FIRST_PRIORITY  ,ONE_SEC_PERIODICITY, red_toggle);
+  TASKS_CREATION(SECOND_PRIORITY ,TWO_SEC_PERIODICITY, yellow_toggle);
+  TASKS_CREATION(THIRD_PRIORITY  ,FIVE_SEC_PERIODICITY, green_toggle);
 
 
   /* USER CODE END 2 */
@@ -224,21 +224,21 @@ void SysTick_Handler()
 	SCHEDULER();
 	if (TICK_COUNTS >= 10)
 	{
-		TICK_COUNTS = 0;
+		TICK_COUNTS = ZERO;
 	}
 
 }
-
+/* First Task  executed every 1 second*/
 void red_toggle (void){
 
 	HAL_GPIO_TogglePin(GPIOA,GPIO_PIN_1);
 }
-
+/* Second Task  executed every 2 seconds*/
 void yellow_toggle (void){
 
 	HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_15);
 }
-
+/* Third Task executed every 5 seconds*/
 void green_toggle (void){
 
 	HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_14);

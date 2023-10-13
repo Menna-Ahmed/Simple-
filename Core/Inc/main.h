@@ -45,6 +45,22 @@ typedef struct
 	void (*ptr_func) (void);
 }Task;
 
+
+/* */
+#define ONE_SECOUND                  10000000
+
+#define FIRST_PRIORITY                  0
+#define SECOND_PRIORITY                 1
+#define THIRD_PRIORITY                  2
+
+
+#define NO_OF_TASKS                     3
+
+#define   ONE_SEC_PERIODICITY           1
+#define   TWO_SEC_PERIODICITY           2
+#define   FIVE_SEC_PERIODICITY          5
+
+#define   ZERO                          0
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

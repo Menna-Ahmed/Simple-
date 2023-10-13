@@ -35,15 +35,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  15 .debug_ranges 00000370  00000000  00000000  00024068  2**3
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_macro  0001588d  00000000  00000000  000243d8  2**0
+ 16 .debug_macro  000158d0  00000000  00000000  000243d8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_line   00003c7f  00000000  00000000  00039c65  2**0
+ 17 .debug_line   00003c7f  00000000  00000000  00039ca8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    0007ba07  00000000  00000000  0003d8e4  2**0
+ 18 .debug_str    0007ba95  00000000  00000000  0003d927  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  000b92eb  2**0
+ 19 .comment      0000007b  00000000  00000000  000b93bc  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00000de0  00000000  00000000  000b9368  2**2
+ 20 .debug_frame  00000de0  00000000  00000000  000b9438  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -110,21 +110,21 @@ int main(void)
   HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK_DIV8);
  800015c:	2000      	movs	r0, #0
  800015e:	f000 faeb 	bl	8000738 <HAL_SYSTICK_CLKSourceConfig>
-  HAL_SYSTICK_Config(10000000);
+  HAL_SYSTICK_Config(ONE_SECOUND);
  8000162:	4809      	ldr	r0, [pc, #36]	; (8000188 <main+0x3c>)
  8000164:	f000 fadb 	bl	800071e <HAL_SYSTICK_Config>
 
-  TASKS_CREATION(0,1,red_toggle);
+  TASKS_CREATION(FIRST_PRIORITY  ,ONE_SEC_PERIODICITY, red_toggle);
  8000168:	4a08      	ldr	r2, [pc, #32]	; (800018c <main+0x40>)
  800016a:	2101      	movs	r1, #1
  800016c:	2000      	movs	r0, #0
  800016e:	f000 f8b3 	bl	80002d8 <TASKS_CREATION>
-  TASKS_CREATION(1,2,yellow_toggle);
+  TASKS_CREATION(SECOND_PRIORITY ,TWO_SEC_PERIODICITY, yellow_toggle);
  8000172:	4a07      	ldr	r2, [pc, #28]	; (8000190 <main+0x44>)
  8000174:	2102      	movs	r1, #2
  8000176:	2001      	movs	r0, #1
  8000178:	f000 f8ae 	bl	80002d8 <TASKS_CREATION>
-  TASKS_CREATION(2,5,green_toggle);
+  TASKS_CREATION(THIRD_PRIORITY  ,FIVE_SEC_PERIODICITY, green_toggle);
  800017c:	4a05      	ldr	r2, [pc, #20]	; (8000194 <main+0x48>)
  800017e:	2105      	movs	r1, #5
  8000180:	2002      	movs	r0, #2
@@ -360,7 +360,7 @@ void Error_Handler(void)
  80002d6:	4770      	bx	lr
 
 080002d8 <TASKS_CREATION>:
-
+/* Create TASKS*/
 void TASKS_CREATION(uint8_t priority, uint8_t Periodicity , void (*Fptr) (void))
 {
  80002d8:	b480      	push	{r7}
@@ -465,7 +465,7 @@ void SysTick_Handler()
  8000374:	2b09      	cmp	r3, #9
  8000376:	d902      	bls.n	800037e <SysTick_Handler+0x22>
 	{
-		TICK_COUNTS = 0;
+		TICK_COUNTS = ZERO;
  8000378:	4b02      	ldr	r3, [pc, #8]	; (8000384 <SysTick_Handler+0x28>)
  800037a:	2200      	movs	r2, #0
  800037c:	701a      	strb	r2, [r3, #0]
@@ -478,7 +478,7 @@ void SysTick_Handler()
  8000384:	20000028 	.word	0x20000028
 
 08000388 <red_toggle>:
-
+/* First Task  executed every 1 second*/
 void red_toggle (void){
  8000388:	b580      	push	{r7, lr}
  800038a:	af00      	add	r7, sp, #0
@@ -493,7 +493,7 @@ void red_toggle (void){
  8000398:	40010800 	.word	0x40010800
 
 0800039c <yellow_toggle>:
-
+/* Second Task  executed every 2 seconds*/
 void yellow_toggle (void){
  800039c:	b580      	push	{r7, lr}
  800039e:	af00      	add	r7, sp, #0
@@ -509,7 +509,7 @@ void yellow_toggle (void){
  80003b0:	40011000 	.word	0x40011000
 
 080003b4 <green_toggle>:
-
+/* Third Task executed every 5 seconds*/
 void green_toggle (void){
  80003b4:	b580      	push	{r7, lr}
  80003b6:	af00      	add	r7, sp, #0
